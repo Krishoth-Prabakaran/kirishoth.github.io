@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirishoth Prabakaran | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #111827;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- NAVIGATION ----- */
+    nav {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1f2937;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* ----- BUTTONS & CARDS ----- */
+    .btn {
+      display: inline-block;
+      background: #1e3a8a;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #1e3a8a;
+      color: #1e3a8a;
+    }
+    .btn-outline:hover {
+      background: #1e3a8a;
+      color: white;
+    }
+    .btn-sm {
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      background: #eef2ff;
+      color: #1e3a8a;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    .btn-sm:hover {
+      background: #1e3a8a;
+      color: white;
+    }
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #eef2f8;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #93c5fd);
+      border-radius: 4px;
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      background: linear-gradient(135deg, #f0f9ff 0%, #eef2ff 100%);
+      padding: 4rem 0 5rem;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    /* Profile image */
+    .hero-image {
+      flex: 0.7;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+    .image-wrapper {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+    }
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background: white;
+      transition: 0.3s ease;
+    }
+    .image-wrapper img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .hero-image {
+        flex: 1;
+        min-width: auto;
+      }
+      .image-wrapper {
+        width: 250px;
+        height: 250px;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* ----- SKILLS GRID ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+    .skill-card, .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+    .skill-card:hover, .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: #cbd5e1;
+    }
+    .skill-icon {
+      font-size: 2rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
+    .skill-card h3, .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+    .skill-card p, .project-card p {
+      color: #4b5563;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .skill-list {
+      padding-left: 1.2rem;
+      color: #374151;
+      font-size: 0.85rem;
+    }
+    .skill-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .skill-tag {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    /* ----- RESUME ----- */
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .resume-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border: 1px solid #eef2f6;
+    }
+    .achievement-item {
+      margin-bottom: 1.2rem;
+    }
+    .achievement-item i {
+      color: #f59e0b;
+      width: 1.8rem;
+    }
+
+    /* ----- PROJECTS ----- */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .tech-badge {
+      background: #eef2ff;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
+    /* ----- CERTIFICATES ----- */
+    .certificate-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+    }
+    .cert-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+      min-width: 240px;
+      border: 1px solid #eef2f6;
+      transition: 0.2s;
+    }
+    .cert-card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .cert-card a {
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ----- CONTACT ----- */
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid #eef2f6;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    /* ----- RESPONSIVE TWEAKS ----- */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .resume-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      section {
+        padding: 3rem 0;
+      }
+      .contact-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Kirishoth</div>
+      <div class="nav-links">
+        <a href="#professional-skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-code"></i> Software Engineering Student</span>
+        <h1>Hi, I'm Kirishoth Prabakaran</h1>
+        <p style="font-size: 1.2rem; color: #374151; max-width: 600px;">
+          Full‑stack developer | React, Node.js, MongoDB | Passionate about building impactful digital solutions.
+        </p>
+        <div class="hero-stats">
+          <div><strong>1+</strong> year of project experience</div>
+          <div><strong>5+</strong> projects delivered</div>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+          <a href="#contact" class="btn">Let's connect</a>
+          <a href="#projects" class="btn btn-outline">See my work</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <!-- CHANGE THIS SRC TO YOUR UPLOADED IMAGE PATH -->
+          <img src="images/krish.jpg" alt="Kirishoth Prabakaran" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL SKILLS -->
+  <section id="professional-skills">
+    <div class="container">
+      <h2 class="section-title">Professional Skills &amp; Trainings</h2>
+      <p style="margin-bottom: 2rem;">Deep‑dive into professional competencies: Etiquette, Emotional Intelligence, Leadership, Proposal Writing, Research Design, CV &amp; LinkedIn mastery and more.</p>
+      <div class="card-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3>Email &amp; Phone Etiquette</h3>
+          <p>Professional tone, subject lines, avoiding caps, voicemail etiquette, positive language in workplace.</p>
+          <ul class="skill-list"><li>✓ Always add subject &amp; recipient name</li><li>✓ Review before sending / avoid all caps</li><li>✓ Private calls, voicemail management</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-utensils"></i></div>
+          <h3>Dining Etiquette</h3>
+          <p>Formal table manners: outside‑in utensil rule, bread &amp; drink “b” / “d” trick, international norms.</p>
+          <ul class="skill-list"><li>✓ Fork left, knife right • Spoon right hand</li><li>✓ No loud eating, keep phone away</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-heart"></i></div>
+          <h3>Emotional Intelligence (EQ)</h3>
+          <p>Self‑awareness, self‑management, social awareness &amp; relationship management.</p>
+          <ul class="skill-list"><li>✓ Conflict handling • Empathy‑driven decisions</li><li>✓ Group activity: responding to emotions properly</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h3>Leadership &amp; Soft Skills</h3>
+          <p>Autocratic/democratic/laissez‑faire styles, emotional intelligence in leadership, constructive feedback.</p>
+          <ul class="skill-list"><li>✓ Role‑play feedback sessions</li><li>✓ Volunteer &amp; public speaking initiatives</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Proposal Writing</h3>
+          <p>External vs internal proposals, executive summary, management &amp; financial details.</p>
+          <ul class="skill-list"><li>✓ Created project proposals with roles/responsibilities</li><li>✓ Structured workflow &amp; budgeting</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-flask"></i></div>
+          <h3>Research Design</h3>
+          <p>Hypothesis, variables, participants &amp; methods. Designed study on dark vs light mode.</p>
+          <ul class="skill-list"><li>✓ Identifying independent/dependent variables</li><li>✓ Reliable software engineering research</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-file-pen"></i></div>
+          <h3>CV &amp; LinkedIn Building</h3>
+          <p>Action verbs, quantified achievements, personal branding, modern networking.</p>
+          <ul class="skill-list"><li>✓ Tailored CV per job description</li><li>✓ Professional headshot, custom URL, LinkedIn Learning</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI &amp; Future Skills</h3>
+          <p>AI reshaping finance/tech roles – importance of Python, data analysis, empathy, ethics.</p>
+          <ul class="skill-list"><li>✓ Tech + human judgment = irreplaceable</li><li>✓ Adaptability &amp; upskilling mindset</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-spa"></i></div>
+          <h3>Stress Management</h3>
+          <p>Deep breathing, chunking tasks, celebrating small wins. Self‑assessment &amp; balance.</p>
+          <ul class="skill-list"><li>✓ Not all stress is harmful • proactive recovery</li><li>✓ Time management &amp; sleep hygiene</li></ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-folder-open"></i></div>
+          <h3>Portfolio Management</h3>
+          <p>Physical &amp; digital portfolios, showcasing projects, code samples, designs.</p>
+          <ul class="skill-list"><li>✓ Organized projects &amp; achievements</li><li>✓ Reflects real work &amp; progress</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">Resumé Snapshot</h2>
+      <div class="resume-grid">
+        <div class="resume-card">
+          <h3><i class="fas fa-user-astronaut"></i> Professional Summary</h3>
+          <p>Software Engineering undergrad with full‑stack project experience (React, Node.js, MongoDB). Winner of SLIIT CodeArt 2024, strong in API design &amp; collaborative development. Eager to contribute as intern at Sysco LABS / Web Dev role.</p>
+          <h3 style="margin-top: 1.5rem;"><i class="fas fa-code"></i> Technical Skills</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript/ES6+</span><span class="skill-tag">Java</span><span class="skill-tag">PHP</span><span class="skill-tag">React.js</span>
+            <span class="skill-tag">Node.js/Express</span><span class="skill-tag">MongoDB/MySQL</span><span class="skill-tag">Flutter</span><span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">REST APIs</span><span class="skill-tag">Bootstrap</span><span class="skill-tag">Jira/Postman</span>
+          </div>
+          <h3 style="margin-top: 1.5rem;"><i class="fas fa-university"></i> Education</h3>
+          <p><strong>BSc (Hons) Software Engineering</strong> | SLIIT / Northern Uni (2023–2027)<br>Coursework: OOP, Web Programming, DBMS, Agile, Data Structures, Algorithms.</p>
+        </div>
+        <div class="resume-card">
+          <h3><i class="fas fa-trophy"></i> Key Achievements</h3>
+          <div class="achievement-item"><i class="fas fa-medal"></i> <strong>1st Place – CodeArt 2024</strong><br>SLIIT university‑wide competition, 20+ teams, LKR 100,000 prize.</div>
+          <div class="achievement-item"><i class="fas fa-chart-line"></i> <strong>Top 10 – Algotthon 2024</strong><br>Ranked 9th among 50+ participants.</div>
+          <div class="achievement-item"><i class="fas fa-certificate"></i> <strong>Python for Beginners</strong> – University of Moratuwa (CODL).</div>
+          <div class="achievement-item"><i class="fas fa-digital-tiling"></i> <strong>Fundamentals of Digital Marketing</strong> – Google Garage certified.</div>
+          <h3 style="margin-top: 1.5rem;"><i class="fas fa-language"></i> Languages</h3>
+          <p>Tamil (Native), English (Professional Working Proficiency).</p>
+          <h3 style="margin-top: 1.5rem;"><i class="fas fa-link"></i> Profiles</h3>
+          <p><i class="fab fa-github"></i> github.com/kirishoth &nbsp;|&nbsp; <i class="fab fa-linkedin"></i> linkedin.com/in/kirishoth-prabakaran-18440326b</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="card-grid">
+        <div class="project-card">
+          <h3>💊 Smart Pharmacy Network</h3>
+          <div class="tech-stack"><span class="tech-badge">React.js</span><span class="tech-badge">Node.js</span><span class="tech-badge">Express</span><span class="tech-badge">MongoDB Atlas</span></div>
+          <p>Full‑stack pharmacy management platform with Admin/User roles, inventory tracking, medicine pricing. Engineered 8+ RESTful APIs, designed MongoDB schema (4 collections), built 10+ reusable React components.</p>
+          <ul class="skill-list"><li>Real‑time profit calculation, prescription upload &amp; verification</li><li>Role‑based access &amp; CRUD operations</li></ul>
+        </div>
+        <div class="project-card">
+          <h3>🚗 WheelBay – Automotive E‑commerce</h3>
+          <div class="tech-stack"><span class="tech-badge">React.js</span><span class="tech-badge">CSS3</span><span class="tech-badge">JavaScript ES6</span><span class="tech-badge">Responsive UI</span></div>
+          <p>Fully responsive frontend with 5+ core views (product listings, checkout). Dark‑themed UI system with 15+ reusable CSS components. Mobile‑first approach tested across 3 breakpoints.</p>
+          <ul class="skill-list"><li>Component consistency &amp; design system</li><li>Performance &amp; accessibility improvements</li></ul>
+        </div>
+        <div class="project-card">
+          <h3>🔬 Research Project: Dark Mode vs Light Mode</h3>
+          <div class="tech-stack"><span class="tech-badge">Research Design</span><span class="tech-badge">Hypothesis testing</span></div>
+          <p>Designed a study to measure coding focus &amp; eye strain. Defined variables, participant criteria, data collection. Presented group findings on UX in software engineering.</p>
+          <ul class="skill-list"><li>Quantitative &amp; qualitative analysis planning</li><li>Practical application of research methods</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications &amp; Recognition</h2>
+      <div class="certificate-grid">
+        <div class="cert-card">
+          <i class="fab fa-python" style="color:#3776AB;"></i>
+          <h3>Python for Beginners</h3>
+          <p>University of Moratuwa – CODL. Completed comprehensive Python fundamentals.</p>
+          <a href="https://drive.google.com/file/d/1FCJW2a9CkUY9aftgtAKFTr4APVgPG-s6/view?usp=drive_link" target="_blank" class="btn-sm"><i class="fas fa-external-link-alt"></i> View certificate</a>
+        </div>
+        <div class="cert-card">
+          <i class="fab fa-google" style="color:#EA4335;"></i>
+          <h3>Fundamentals of Digital Marketing</h3>
+          <p>Google Garage certified – 40+ hours, covering SEO, analytics, social media strategy.</p>
+          <a href="https://drive.google.com/file/d/1YEeftI4sRwaknh9U_sK8_GvEs_PyqsCj/view?usp=drive_link" target="_blank" class="btn-sm"><i class="fas fa-external-link-alt"></i> View certificate</a>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-laptop-code" style="color:#2563eb;"></i>
+          <h3>CodeArt 2024 Winner</h3>
+          <p>1st place out of 20+ university teams, awarded LKR 100,000. Recognized for technical excellence &amp; teamwork.</p>
+          <span class="skill-tag">Awarded</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let’s Connect</h2>
+      <div class="contact-box">
+        <div>
+          <p><i class="fas fa-envelope" style="width: 2rem;"></i> krishothprabakaran@gmail.com</p>
+          <p><i class="fas fa-phone-alt" style="width: 2rem;"></i> +94 76 752 0147</p>
+          <p><i class="fab fa-github" style="width: 2rem;"></i> <a href="https://github.com/Krishoth-Prabakaran" target="_blank" style="color:#1f2937; text-decoration: none;">Krishoth-Prabakaran</a></p>
+          <p><i class="fab fa-linkedin" style="width: 2rem;"></i> <a href="https://www.linkedin.com/in/kirishoth-prabakaran-18440326b" target="_blank" style="color:#1f2937; text-decoration: none;">linkedin.com/in/kirishoth-prabakaran</a></p>
+          <p><i class="fab fa-hackerrank" style="width: 2rem;"></i> <a href="https://www.hackerrank.com/profile/kirishoth11" target="_blank" style="color:#1f2937; text-decoration: none;">HackerRank Profile</a></p>
+          <p><i class="fas fa-map-pin" style="width: 2rem;"></i> Jaffna, Sri Lanka</p>
+        </div>
+        <div style="flex:1">
+          <p class="skill-tag" style="background: #EFF6FF;">📌 Open for Software Engineering / Web Dev internships 2025–2026. Let's build something impactful.</p>
+          <p style="margin-top: 1rem;"><i class="fas fa-certificate"></i> Portfolio reflects workshops with Mr. Aravinth Thevarajan (Professional Skills) and ESD modules — combining technical + soft skills for modern workplace.</p>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://www.linkedin.com/in/kirishoth-prabakaran-18440326b" target="_blank" class="btn-sm"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.hackerrank.com/profile/kirishoth11" target="_blank" class="btn-sm"><i class="fab fa-hackerrank"></i> HackerRank</a>
+            <a href="https://drive.google.com/file/d/1FCJW2a9CkUY9aftgtAKFTr4APVgPG-s6/view?usp=drive_link" target="_blank" class="btn-sm"><i class="fab fa-python"></i> Python Cert</a>
+            <a href="https://drive.google.com/file/d/1YEeftI4sRwaknh9U_sK8_GvEs_PyqsCj/view?usp=drive_link" target="_blank" class="btn-sm"><i class="fab fa-google"></i> Digital Marketing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Kirishoth Prabakaran. Built with <i class="fas fa-heart" style="color:#f43f5e;"></i> and lots of coffee.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
